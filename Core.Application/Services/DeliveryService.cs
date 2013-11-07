@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Core.Domain.Model.Delivery;
 using Core.Domain.Model.RepositoryInterfaces;
-using Core.Application.Factory;
+using Core.Infrastructure.Factory;
 
-namespace Core.Application.Services
+namespace Core.Infrastructure.Services
 {
     public class DeliveryService : IDeliveryService
     {

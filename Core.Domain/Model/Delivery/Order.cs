@@ -15,9 +15,22 @@ namespace Core.Domain.Model.Delivery
 
     public class Order
     {
+        public Order()
+        {
+            state = OrderState.Preparing;
+            postingDate = DateTime.Now;
+            receivingDate = DateTime.Now;
+        }
+
         public Order(int Size, int Weight)
         {
             state = OrderState.Preparing;
+            postingDate = DateTime.Now;
+            receivingDate = DateTime.Now;
+
+            
+            this.size = Size;
+            this.weight = Weight;
         }
 
         public int id { get; set; }

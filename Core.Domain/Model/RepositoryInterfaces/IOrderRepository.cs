@@ -14,5 +14,6 @@ namespace Core.Domain.Model.RepositoryInterfaces
         void DeleteOrder(Order order);
         Driver RetrieveOrder(int id);
         ICollection<Order> RetrieveAllOrders();
+        void DeleteAllOrders();
     }
 }

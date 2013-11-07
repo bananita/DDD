@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Core.Domain.Model.Delivery;
 
-namespace Core.Application.Factory
+namespace Core.Infrastructure.Factory
 {
     public class DeliveryFactory : IDeliveryFactory
     {

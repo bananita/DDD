@@ -1,15 +1,15 @@
 ﻿using System;
-using Core.Application;
+using Core.Infrastructure;
 using Core.Domain.Model.Delivery;
-using Core.Application.Factory;
-using Core.Application.Services;
+using Core.Infrastructure.Factory;
+using Core.Infrastructure.Services;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Core.Domain.Model.RepositoryInterfaces;
 using Core.ObjectsMother;
 using System.Collections.Generic;
 
-namespace Core.Application.UnitTests
+namespace Core.Infrastructure.UnitTests
 {
     [TestClass]
     public class DeliveryServiceUnitTests
