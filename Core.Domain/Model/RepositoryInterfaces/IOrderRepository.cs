@@ -12,7 +12,7 @@ namespace Core.Domain.Model.RepositoryInterfaces
         void InsertOrder(Order order);
         void UpdateOrder(Order order);
         void DeleteOrder(Order order);
-        Driver RetrieveOrder(int id);
+        Order RetrieveOrder(int id);
         ICollection<Order> RetrieveAllOrders();
         void DeleteAllOrders();
     }

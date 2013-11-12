@@ -21,13 +21,16 @@ create table Driver (
   address varchar(100)
 );
 
+-- state 0: preparing
+-- state 1: ready
+-- state 2: delivered
 create table DeliveryOrder (
-  ID int not null primary key,
+  ID int identity(1,1) not null primary key,
   size int,
   weight int,
-  posting_date int,
-  receiving_date int,
-  client_ID int references Client(ID),
+  posting_date date,
+  receiving_date date,
+  client_ID int,
   driver_ID int,
   state int
 );

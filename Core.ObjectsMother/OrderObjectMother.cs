@@ -17,6 +17,7 @@ namespace Core.ObjectsMother
         public static Order CreateReceivedOrder()
         {
             Order order = new Order(123, 123);
+            order.postingDate = DateTime.Now;
             order.receivingDate = DateTime.Now;
             order.state = OrderState.Delivered;
 
@@ -27,7 +28,8 @@ namespace Core.ObjectsMother
         {
             Order order = new Order(123, 123);
             order.state = OrderState.Ready;
-
+            order.postingDate = DateTime.Now;
+            order.receivingDate = DateTime.Now;
             return order;
         }
 

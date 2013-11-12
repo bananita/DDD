@@ -45,7 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="OrderConnectionRepositoryIntegrationTests.cs" />
+    <Compile Include="OrderConnectionlessRepositoryTests.cs" />
+    <Compile Include="OrderConnectionRepositoryTests.cs" />
+    <Compile Include="OrderRepositoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
