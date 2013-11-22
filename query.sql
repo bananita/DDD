@@ -25,7 +25,7 @@ create table Driver (
 -- state 1: ready
 -- state 2: delivered
 create table DeliveryOrder (
-  ID int identity(1,1) not null primary key,
+  ID int not null primary key,
   size int,
   weight int,
   posting_date date,
