@@ -45,6 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="OrderNHibernateWithAttributesRepositoryTests.cs" />
+    <Compile Include="OrderNHibernateRepositoryTests.cs" />
     <Compile Include="OrderConnectionRepositoryTests.cs" />
     <Compile Include="OrderRepositoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

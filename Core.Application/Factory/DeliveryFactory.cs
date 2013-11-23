@@ -14,9 +14,9 @@ namespace Core.Infrastructure.Factory
             return new Client(Name, Surname, PhoneNumber, EMail, Address);
         }
 
-        public Order CreateOrder(int Size, int Weight)
+        public DeliveryOrder CreateOrder(int Size, int Weight)
         {
-            return new Order(Size, Weight);
+            return new DeliveryOrder(Size, Weight);
         }
 
         public Driver CreateDriver(string Name, string Surname, string Address)

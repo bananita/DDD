@@ -9,27 +9,27 @@ namespace Core.ObjectsMother
 {
     public static class OrderObjectMother
     {
-        public static Order CreateOrder()
+        public static DeliveryOrder CreateOrder()
         {
-            return new Order(100, 100);
+            return new DeliveryOrder(100, 100);
         }
 
-        public static Order CreateReceivedOrder()
+        public static DeliveryOrder CreateReceivedOrder()
         {
-            Order order = new Order(123, 123);
-            order.postingDate = DateTime.Now;
-            order.receivingDate = DateTime.Now;
+            DeliveryOrder order = new DeliveryOrder(123, 123);
+            order.posting_date = DateTime.Now;
+            order.receiving_date = DateTime.Now;
             order.state = OrderState.Delivered;
 
             return order;
         }
 
-        public static Order CreateReadyOrder()
+        public static DeliveryOrder CreateReadyOrder()
         {
-            Order order = new Order(123, 123);
+            DeliveryOrder order = new DeliveryOrder(123, 123);
             order.state = OrderState.Ready;
-            order.postingDate = DateTime.Now;
-            order.receivingDate = DateTime.Now;
+            order.posting_date = DateTime.Now;
+            order.receiving_date = DateTime.Now;
             return order;
         }
 

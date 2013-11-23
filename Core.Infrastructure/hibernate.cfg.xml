@@ -9,6 +9,6 @@
     <property name="dialect">NHibernate.Dialect.MsSql2012Dialect</property>
     <property name="command_timeout">60</property>
     <property name="query.substitutions">true 1, false 0, yes 'Y', no 'N'</property>
-    <mapping file="Osoba.hbm.xml" />
+    <mapping assembly="Core.Domain" />
   </session-factory>
 </hibernate-configuration>

@@ -14,6 +14,6 @@ namespace Core.Domain.Model.RepositoryInterfaces
         void DeleteDriver(Driver driver);
         Driver RetrieveDriver(int id);
         ICollection<Driver> RetrieveAllDrivers();
-        void AddOrder(int DriverId, Order order);
+        void AddOrder(int DriverId, DeliveryOrder order);
     }
 }

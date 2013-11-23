@@ -12,25 +12,25 @@ namespace Core.Infrastructure.Repository
 {
     public class OrderConnectionlessRepository : IOrderRepository
     {
-        public void InsertOrder(Order order)
+        public void InsertOrder(DeliveryOrder order)
         {
 
         }
-        public void UpdateOrder(Order order)
+        public void UpdateOrder(DeliveryOrder order)
         {
 
         }
 
-        public void DeleteOrder(Order order)
+        public void DeleteOrder(DeliveryOrder order)
         {
 
         }
-        public Order RetrieveOrder(int id)
+        public DeliveryOrder RetrieveOrder(int id)
         {
             return null;
         }
 
-        public ICollection<Order> RetrieveAllOrders()
+        public ICollection<DeliveryOrder> RetrieveAllOrders()
         {
            DataSet ds = new DataSet();
 
@@ -41,17 +41,17 @@ namespace Core.Infrastructure.Repository
 
            daOrders.Fill(ds, "DeliveryOrder");
 
-           ICollection<Order> orders = new List<Order>();
+           ICollection<DeliveryOrder> orders = new List<DeliveryOrder>();
 
            foreach (DataRow r in ds.Tables[0].Rows)
            {
-               Order order = new Order();
+               DeliveryOrder order = new DeliveryOrder();
                
-               order.id = (int)r["ID"];
+               order.ID = (int)r["ID"];
                order.size = (int)r["size"];
                order.weight = (int)r["weight"];
-               order.postingDate = (DateTime)r["posting_date"];
-               order.receivingDate = (DateTime)r["receiving_date"];
+               order.posting_date = (DateTime)r["posting_date"];
+               order.receiving_date = (DateTime)r["receiving_date"];
                order.state = (OrderState)r["state"];
 
                orders.Add(order);

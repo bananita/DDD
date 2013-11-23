@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{7214DA46-E85C-4E31-8B2B-DB13029F89D8}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Domain", "Core.Domain\Core.Domain.csproj", "{8B725719-EB08-499B-B45B-85D902928220}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Infrastructure", "Core.Infrastructure\Core.Infrastructure.csproj", "{F23387C7-CF0E-4E8C-B164-822BE877AEA7}"
@@ -26,6 +24,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.ObjectsMother", "Core.ObjectsMother\Core.ObjectsMother.csproj", "{1D85922C-D48E-4B50-9B23-FDCED25A248F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IntegratonTests", "IntegratonTests", "{91B1B6BB-D3FE-4072-B1B1-412A6D65D6AD}"
+	ProjectSection(SolutionItems) = preProject
+		Core.Infrastructure\Repository\hibernate.cfg.xml = Core.Infrastructure\Repository\hibernate.cfg.xml
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Infrastructure.DatabaseTests", "Core.Infrastructure.IntegrationTests\Core.Infrastructure.DatabaseTests.csproj", "{C8817A57-3A45-4859-86F3-4B96777E4541}"
 EndProject
@@ -35,10 +36,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7214DA46-E85C-4E31-8B2B-DB13029F89D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7214DA46-E85C-4E31-8B2B-DB13029F89D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7214DA46-E85C-4E31-8B2B-DB13029F89D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7214DA46-E85C-4E31-8B2B-DB13029F89D8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8B725719-EB08-499B-B45B-85D902928220}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8B725719-EB08-499B-B45B-85D902928220}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B725719-EB08-499B-B45B-85D902928220}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -77,7 +74,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{3D9AD078-2EE3-45AE-87E1-DAD0530287AD} = {F0B9DF8F-A481-4476-AFFA-8F9B798CF5A4}
-		{7214DA46-E85C-4E31-8B2B-DB13029F89D8} = {F0B9DF8F-A481-4476-AFFA-8F9B798CF5A4}
 		{F23387C7-CF0E-4E8C-B164-822BE877AEA7} = {69133F37-3313-434D-BCB6-F2976D940B59}
 		{6F9F22DB-BABD-4B4C-BED4-43941166B189} = {69133F37-3313-434D-BCB6-F2976D940B59}
 		{8B725719-EB08-499B-B45B-85D902928220} = {69133F37-3313-434D-BCB6-F2976D940B59}

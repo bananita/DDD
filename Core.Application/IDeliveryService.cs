@@ -11,14 +11,14 @@ namespace Core.Infrastructure
     {
         Client CreateNewClient(string Name, string Surname, int PhoneNumber, string EMail, string Address);
         Driver CreateNewDriver(string Name, string Surname, string Address);
-        Order CreateNewOrder(int Size, int Weight, Client client);
+        DeliveryOrder CreateNewOrder(int Size, int Weight, Client client);
         
-        void AddOrderToDriver(Order order, Driver driver);
+        void AddOrderToDriver(DeliveryOrder order, Driver driver);
         
-        ICollection<Order> GetReceivedOrders();
-        ICollection<Order> GetReadyOrders();
-        ICollection<Order> GetNotReadyOrders();
+        ICollection<DeliveryOrder> GetReceivedOrders();
+        ICollection<DeliveryOrder> GetReadyOrders();
+        ICollection<DeliveryOrder> GetNotReadyOrders();
 
-        ICollection<Order> GetOrdersDeliveredByDriver(Driver driver);
+        ICollection<DeliveryOrder> GetOrdersDeliveredByDriver(Driver driver);
     }
 }

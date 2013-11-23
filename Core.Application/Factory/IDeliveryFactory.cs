@@ -11,7 +11,7 @@ namespace Core.Infrastructure.Factory
     {
         Client CreateClient(string Name, string Surname, int PhoneNumber, string EMail, string Address);
 
-        Order CreateOrder(int Size, int Weight);
+        DeliveryOrder CreateOrder(int Size, int Weight);
 
         Driver CreateDriver(string Name, string Surname, string Address);
     }

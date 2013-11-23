@@ -39,11 +39,11 @@ namespace Core.Infrastructure.UnitTests
             // Arrange
             Client client = ClientObjectMother.CreateClient();
             deliveryFactoryMock.Setup(factory => 
-                factory.CreateClient(client.name, client.surname, client.phoneNumber, client.email, client.address))
+                factory.CreateClient(client.name, client.surname, client.phone_number, client.email, client.address))
                 .Returns(client);
 
             // Act
-            Client returnedClient = deliveryService.CreateNewClient(client.name, client.surname, client.phoneNumber, client.email, client.address);
+            Client returnedClient = deliveryService.CreateNewClient(client.name, client.surname, client.phone_number, client.email, client.address);
         
             // Assert
             clientRepositoryMock.Verify(r => r.InsertClient(client), Times.Once());
@@ -72,14 +72,14 @@ namespace Core.Infrastructure.UnitTests
         {
             // Arrange
             Client client = ClientObjectMother.CreateClient();
-            Order order = OrderObjectMother.CreateOrder();
+            DeliveryOrder order = OrderObjectMother.CreateOrder();
 
             deliveryFactoryMock.Setup(factory =>
                 factory.CreateOrder(order.size, order.weight))
                 .Returns(order);
 
             // Act
-            Order createdOrder = deliveryService.CreateNewOrder(order.size, order.weight, client);
+            DeliveryOrder createdOrder = deliveryService.CreateNewOrder(order.size, order.weight, client);
 
             // Assert
             orderRepositoryMock.Verify(r => r.InsertOrder(order), Times.Once());
@@ -94,17 +94,17 @@ namespace Core.Infrastructure.UnitTests
         public void CheckCreatingOrderWithoutClient()
         {
             // Arrange
-            Order order = OrderObjectMother.CreateOrder();
+            DeliveryOrder order = OrderObjectMother.CreateOrder();
 
             // Act
-            Order createdOrder = deliveryService.CreateNewOrder(order.size, order.weight, null);
+            DeliveryOrder createdOrder = deliveryService.CreateNewOrder(order.size, order.weight, null);
         }
 
         [TestMethod]
         public void CheckAddingOrderToTheDriver()
         {
             //Arrange
-            Order order = OrderObjectMother.CreateOrder();
+            DeliveryOrder order = OrderObjectMother.CreateOrder();
             Driver driver = DriverObjectMother.CreateDriver();
 
             //Act
@@ -119,18 +119,18 @@ namespace Core.Infrastructure.UnitTests
         public void CheckGettingReceivedOrders()
         {
             // Arrange
-            Order firstUnreceivedOrder = OrderObjectMother.CreateOrder();
-            Order firstReceivedOrder = OrderObjectMother.CreateReceivedOrder();
-            Order secondUnreceivedOrder = OrderObjectMother.CreateOrder();
-            Order secondReceivedOrder = OrderObjectMother.CreateReceivedOrder();
-            List<Order> orders = new List<Order> { firstReceivedOrder, firstUnreceivedOrder, secondReceivedOrder, secondUnreceivedOrder };
+            DeliveryOrder firstUnreceivedOrder = OrderObjectMother.CreateOrder();
+            DeliveryOrder firstReceivedOrder = OrderObjectMother.CreateReceivedOrder();
+            DeliveryOrder secondUnreceivedOrder = OrderObjectMother.CreateOrder();
+            DeliveryOrder secondReceivedOrder = OrderObjectMother.CreateReceivedOrder();
+            List<DeliveryOrder> orders = new List<DeliveryOrder> { firstReceivedOrder, firstUnreceivedOrder, secondReceivedOrder, secondUnreceivedOrder };
 
             orderRepositoryMock.Setup(repository =>
                 repository.RetrieveAllOrders())
                 .Returns(orders);
 
             // Act
-            ICollection<Order> returnedOrders = deliveryService.GetReceivedOrders();
+            ICollection<DeliveryOrder> returnedOrders = deliveryService.GetReceivedOrders();
 
             // Assert
             Assert.AreEqual(2, returnedOrders.Count);
@@ -142,18 +142,18 @@ namespace Core.Infrastructure.UnitTests
         public void CheckGettingReadyOrders()
         {
             // Arrange
-            Order firstUnreceivedOrder = OrderObjectMother.CreateOrder();
-            Order firstReadyOrder = OrderObjectMother.CreateReadyOrder();
-            Order secondUnreceivedOrder = OrderObjectMother.CreateOrder();
-            Order secondReadyOrder = OrderObjectMother.CreateReadyOrder();
-            List<Order> orders = new List<Order> { firstReadyOrder, firstUnreceivedOrder, secondReadyOrder, secondUnreceivedOrder };
+            DeliveryOrder firstUnreceivedOrder = OrderObjectMother.CreateOrder();
+            DeliveryOrder firstReadyOrder = OrderObjectMother.CreateReadyOrder();
+            DeliveryOrder secondUnreceivedOrder = OrderObjectMother.CreateOrder();
+            DeliveryOrder secondReadyOrder = OrderObjectMother.CreateReadyOrder();
+            List<DeliveryOrder> orders = new List<DeliveryOrder> { firstReadyOrder, firstUnreceivedOrder, secondReadyOrder, secondUnreceivedOrder };
 
             orderRepositoryMock.Setup(repository =>
                 repository.RetrieveAllOrders())
                 .Returns(orders);
 
             // Act
-            ICollection<Order> returnedOrders = deliveryService.GetReadyOrders();
+            ICollection<DeliveryOrder> returnedOrders = deliveryService.GetReadyOrders();
 
             // Assert
             Assert.AreEqual(2, returnedOrders.Count);
@@ -165,18 +165,18 @@ namespace Core.Infrastructure.UnitTests
         public void CheckGettingUnreadyOrders()
         {
             // Arrange
-            Order firstUnreceivedOrder = OrderObjectMother.CreateOrder();
-            Order firstReadyOrder = OrderObjectMother.CreateReadyOrder();
-            Order secondUnreceivedOrder = OrderObjectMother.CreateOrder();
-            Order secondReadyOrder = OrderObjectMother.CreateReadyOrder();
-            List<Order> orders = new List<Order> { firstReadyOrder, firstUnreceivedOrder, secondReadyOrder, secondUnreceivedOrder };
+            DeliveryOrder firstUnreceivedOrder = OrderObjectMother.CreateOrder();
+            DeliveryOrder firstReadyOrder = OrderObjectMother.CreateReadyOrder();
+            DeliveryOrder secondUnreceivedOrder = OrderObjectMother.CreateOrder();
+            DeliveryOrder secondReadyOrder = OrderObjectMother.CreateReadyOrder();
+            List<DeliveryOrder> orders = new List<DeliveryOrder> { firstReadyOrder, firstUnreceivedOrder, secondReadyOrder, secondUnreceivedOrder };
 
             orderRepositoryMock.Setup(repository =>
                 repository.RetrieveAllOrders())
                 .Returns(orders);
 
             // Act
-            ICollection<Order> returnedOrders = deliveryService.GetNotReadyOrders();
+            ICollection<DeliveryOrder> returnedOrders = deliveryService.GetNotReadyOrders();
 
             // Assert
             Assert.AreEqual(2, returnedOrders.Count);

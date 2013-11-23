@@ -2,19 +2,29 @@
 using Core.Domain.Model.RepositoryInterfaces;
 using NHibernate;
 using NHibernate.Cfg;
+using NHibernate.Mapping.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Core.Infrastructure.Repository
 {
-    public class OrderNHibernateRepository : IOrderRepository
+    public class OrderNHibernateWithAttributtesRepository : IOrderRepository
     {
         ISession OpenSession()
         {
-            return new Configuration().Configure().BuildSessionFactory().OpenSession();
+              NHibernate.Cfg.Configuration cfg = new NHibernate.Cfg.Configuration();
+    cfg.Configure();
+    NHibernate.Mapping.Attributes.HbmSerializer.Default.Validate = true; // Enable validation (optional)
+    // Here, we serialize all decorated classes (but you can also do it class by class)
+    cfg.AddInputStream(NHibernate.Mapping.Attributes.HbmSerializer.Default.Serialize(System.Reflection.Assembly.GetAssembly(typeof(DeliveryOrder))));
+    // Now you can use this configuration to build your SessionFactory..
+            ISessionFactory f = cfg.BuildSessionFactory();
+
+            return f.OpenSession();
         }
 
         public void InsertOrder(DeliveryOrder order)

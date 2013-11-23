@@ -14,6 +14,6 @@ namespace Core.Domain.Model.RepositoryInterfaces
         void DeleteClient(Client client);
         Client RetrieveClient(int id);
         ICollection<Client> RetrieveAllClients();
-        void AddOrder(int ClientId, Order order);
+        void AddOrder(int ClientId, DeliveryOrder order);
     }
 }

@@ -30,6 +30,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\Libs\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\Libs\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.Mapping.Attributes">
+      <HintPath>..\Libs\NHibernate.Mapping.Attributes.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,7 +50,7 @@
   <ItemGroup>
     <Compile Include="Model\Delivery\Driver.cs" />
     <Compile Include="Model\Delivery\Client.cs" />
-    <Compile Include="Model\Delivery\Order.cs" />
+    <Compile Include="Model\Delivery\DeliveryOrder.cs" />
     <Compile Include="Model\RepositoryInterfaces\IClientRepository.cs" />
     <Compile Include="Model\RepositoryInterfaces\IDriverRepository.cs" />
     <Compile Include="Model\RepositoryInterfaces\IOrderRepository.cs" />
@@ -50,6 +59,15 @@
   <ItemGroup>
     <Folder Include="Service\" />
     <Folder Include="Shared\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Model\Mapping\-DeliveryOrder.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Model\Mapping\-Driver.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Model\Mapping\-Client.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -47,12 +47,12 @@ namespace Core.Infrastructure.Services
             return driver;
         }
 
-        public Order CreateNewOrder(int Size, int Weight, Client client)
+        public DeliveryOrder CreateNewOrder(int Size, int Weight, Client client)
         {
             if (client == null)
                 throw new ArgumentException("Client can't be null.");
 
-            Order order = deliveryFactory.CreateOrder(Size, Weight);
+            DeliveryOrder order = deliveryFactory.CreateOrder(Size, Weight);
 
             orderRepository.InsertOrder(order);
             order.client = client;
@@ -62,42 +62,42 @@ namespace Core.Infrastructure.Services
             return order;
         }
 
-        public void AddOrderToDriver(Order order, Driver driver)
+        public void AddOrderToDriver(DeliveryOrder order, Driver driver)
         {
             driver.orders.Add(order);
             order.driver = driver;
         }
 
-        public ICollection<Order> GetReceivedOrders()
+        public ICollection<DeliveryOrder> GetReceivedOrders()
         {
             return GetOrdersWithState(OrderState.Delivered);
         }
 
-        public ICollection<Order> GetReadyOrders()
+        public ICollection<DeliveryOrder> GetReadyOrders()
         {
             return GetOrdersWithState(OrderState.Ready);
         }
 
-        public ICollection<Order> GetNotReadyOrders()
+        public ICollection<DeliveryOrder> GetNotReadyOrders()
         {
             return GetOrdersWithState(OrderState.Preparing);
         }
 
-        private ICollection<Order> GetOrdersWithState(OrderState state)
+        private ICollection<DeliveryOrder> GetOrdersWithState(OrderState state)
         {
-            ICollection<Order> allOrders = orderRepository.RetrieveAllOrders();
-            ICollection<Order> readyOrders = allOrders
+            ICollection<DeliveryOrder> allOrders = orderRepository.RetrieveAllOrders();
+            ICollection<DeliveryOrder> readyOrders = allOrders
                 .Where(order => order.state == state)
                 .ToList();
 
             return readyOrders;
         }
 
-        public ICollection<Order> GetOrdersDeliveredByDriver(Driver driver)
+        public ICollection<DeliveryOrder> GetOrdersDeliveredByDriver(Driver driver)
         {
-            ICollection<Order> orders = driver.orders;
-            ICollection<Order> deliveredOrders = orders
-                .Where(order => order.receivingDate != null)
+            ICollection<DeliveryOrder> orders = driver.orders;
+            ICollection<DeliveryOrder> deliveredOrders = orders
+                .Where(order => order.receiving_date != null)
                 .ToList();
 
             return deliveredOrders;

@@ -24,30 +24,30 @@ namespace Core.Infrastructure.DatabaseTests
         public void CheckAddingToDatabase()
         {
             // Arrange
-            Order order = OrderObjectMother.CreateReceivedOrder();
+            DeliveryOrder order = OrderObjectMother.CreateReceivedOrder();
 
             // Act
             repository.InsertOrder(order);
 
             //Assert
-            ICollection<Order> orders = repository.RetrieveAllOrders();
+            ICollection<DeliveryOrder> orders = repository.RetrieveAllOrders();
             Assert.AreEqual(1, orders.Count);
 
-            Order receivedOrder = orders.ElementAt(0);
+            DeliveryOrder receivedOrder = orders.ElementAt(0);
 
-            Assert.AreEqual(order.id, receivedOrder.id);
+            Assert.AreEqual(order.ID, receivedOrder.ID);
             Assert.AreEqual(order.size, receivedOrder.size);
             Assert.AreEqual(order.weight, receivedOrder.weight);
-            Assert.AreEqual(order.receivingDate.Date, receivedOrder.receivingDate.Date);
-            Assert.AreEqual(order.postingDate.Date, receivedOrder.postingDate.Date);
+            Assert.AreEqual(order.receiving_date.Date, receivedOrder.receiving_date.Date);
+            Assert.AreEqual(order.posting_date.Date, receivedOrder.posting_date.Date);
         }
 
         [TestMethod]
         public void CheckDeletingFromDatabase()
         {
             // Arrange
-            Order firstOrder = OrderObjectMother.CreateReceivedOrder();
-            Order secondOrder = OrderObjectMother.CreateReceivedOrder();
+            DeliveryOrder firstOrder = OrderObjectMother.CreateReceivedOrder();
+            DeliveryOrder secondOrder = OrderObjectMother.CreateReceivedOrder();
             repository.InsertOrder(firstOrder);
             repository.InsertOrder(secondOrder);
 
@@ -55,7 +55,7 @@ namespace Core.Infrastructure.DatabaseTests
             repository.DeleteOrder(firstOrder);
 
             //Assert
-            ICollection<Order> orders = repository.RetrieveAllOrders();
+            ICollection<DeliveryOrder> orders = repository.RetrieveAllOrders();
             Assert.AreEqual(1, orders.Count);
         }
 
@@ -63,29 +63,29 @@ namespace Core.Infrastructure.DatabaseTests
         public void CheckRetrievingFromDatabase()
         {
             // Arrange
-            Order order = OrderObjectMother.CreateReceivedOrder();
+            DeliveryOrder order = OrderObjectMother.CreateReceivedOrder();
             repository.InsertOrder(order);
 
             //Act
-            Order receivedOrder = repository.RetrieveOrder(order.id);
+            DeliveryOrder receivedOrder = repository.RetrieveOrder(order.ID);
 
             //Assert
-            Assert.AreEqual(order.id, receivedOrder.id);
+            Assert.AreEqual(order.ID, receivedOrder.ID);
             Assert.AreEqual(order.size, receivedOrder.size);
             Assert.AreEqual(order.weight, receivedOrder.weight);
-            Assert.AreEqual(order.receivingDate.Date, receivedOrder.receivingDate.Date);
-            Assert.AreEqual(order.postingDate.Date, receivedOrder.postingDate.Date);
+            Assert.AreEqual(order.receiving_date.Date, receivedOrder.receiving_date.Date);
+            Assert.AreEqual(order.posting_date.Date, receivedOrder.posting_date.Date);
         }
 
         [TestMethod]
         public void CheckRetrievingFromDatabaseWhenThereIsNoSuchOrder()
         {
             // Arrange
-            Order order = OrderObjectMother.CreateReceivedOrder();
+            DeliveryOrder order = OrderObjectMother.CreateReceivedOrder();
             repository.InsertOrder(order);
 
             //Act
-            Order receivedOrder = repository.RetrieveOrder(order.id + 1);
+            DeliveryOrder receivedOrder = repository.RetrieveOrder(order.ID + 1);
 
             //Assert
             Assert.IsNull(receivedOrder);

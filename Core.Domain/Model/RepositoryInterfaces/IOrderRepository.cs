@@ -9,11 +9,11 @@ namespace Core.Domain.Model.RepositoryInterfaces
 {
     public interface IOrderRepository
     {
-        void InsertOrder(Order order);
-        void UpdateOrder(Order order);
-        void DeleteOrder(Order order);
-        Order RetrieveOrder(int id);
-        ICollection<Order> RetrieveAllOrders();
+        void InsertOrder(DeliveryOrder order);
+        void UpdateOrder(DeliveryOrder order);
+        void DeleteOrder(DeliveryOrder order);
+        DeliveryOrder RetrieveOrder(int id);
+        ICollection<DeliveryOrder> RetrieveAllOrders();
         void DeleteAllOrders();
     }
 }
