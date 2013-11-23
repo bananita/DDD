@@ -25,7 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.ObjectsMother", "Core.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IntegratonTests", "IntegratonTests", "{91B1B6BB-D3FE-4072-B1B1-412A6D65D6AD}"
 	ProjectSection(SolutionItems) = preProject
-		Core.Infrastructure\Repository\hibernate.cfg.xml = Core.Infrastructure\Repository\hibernate.cfg.xml
+		Core.Infrastructure\hibernate-attr.cfg.xml = Core.Infrastructure\hibernate-attr.cfg.xml
+		Core.Infrastructure\hibernate.cfg.xml = Core.Infrastructure\hibernate.cfg.xml
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Infrastructure.DatabaseTests", "Core.Infrastructure.IntegrationTests\Core.Infrastructure.DatabaseTests.csproj", "{C8817A57-3A45-4859-86F3-4B96777E4541}"

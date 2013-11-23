@@ -14,7 +14,7 @@ namespace Core.Infrastructure.Repository
     {
         ISession OpenSession()
         {
-            return new Configuration().Configure().BuildSessionFactory().OpenSession();
+            return new Configuration().Configure("hibernate.cfg.xml").BuildSessionFactory().OpenSession();
         }
 
         public void InsertOrder(DeliveryOrder order)

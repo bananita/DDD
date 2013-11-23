@@ -16,12 +16,11 @@ namespace Core.Infrastructure.Repository
     {
         ISession OpenSession()
         {
-              NHibernate.Cfg.Configuration cfg = new NHibernate.Cfg.Configuration();
-    cfg.Configure();
-    NHibernate.Mapping.Attributes.HbmSerializer.Default.Validate = true; // Enable validation (optional)
-    // Here, we serialize all decorated classes (but you can also do it class by class)
-    cfg.AddInputStream(NHibernate.Mapping.Attributes.HbmSerializer.Default.Serialize(System.Reflection.Assembly.GetAssembly(typeof(DeliveryOrder))));
-    // Now you can use this configuration to build your SessionFactory..
+            NHibernate.Cfg.Configuration cfg = new NHibernate.Cfg.Configuration();
+            cfg.Configure("hibernate-attr.cfg.xml");
+            
+            NHibernate.Mapping.Attributes.HbmSerializer.Default.Validate = true; // Enable validation (optional)
+            cfg.AddInputStream(NHibernate.Mapping.Attributes.HbmSerializer.Default.Serialize(System.Reflection.Assembly.GetAssembly(typeof(DeliveryOrder))));
             ISessionFactory f = cfg.BuildSessionFactory();
 
             return f.OpenSession();
