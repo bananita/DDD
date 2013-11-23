@@ -11,13 +11,13 @@ using Core.Domain.Model.RepositoryInterfaces;
 
 namespace Core.Infrastructure.DatabaseTests
 {
-    //[TestClass]
-    public class OrderConnectionRepositoryTests : OrderRepositoryTests
+   // [TestClass]
+    public class OrderNHibernateFluentRepositoryTests : OrderRepositoryTests
     {
         [TestInitialize]
         public override void SetUp()
         {
-            repository = new OrderConnectionRepository();
+            repository = new OrderNHibernateFluentRepository();
             base.SetUp();
         }
 
