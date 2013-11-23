@@ -61,13 +61,9 @@
     <Folder Include="Shared\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Model\Mapping\-DeliveryOrder.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Model\Mapping\-Driver.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Model\Mapping\-Client.hbm.xml" />
+    <EmbeddedResource Include="Model\Mapping\Client.hbm.xml" />
+    <EmbeddedResource Include="Model\Mapping\DeliveryOrder.hbm.xml" />
+    <EmbeddedResource Include="Model\Mapping\Driver.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

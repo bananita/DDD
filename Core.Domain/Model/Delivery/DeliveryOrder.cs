@@ -37,24 +37,24 @@ namespace Core.Domain.Model.Delivery
 
         [Id(Name = "ID")]
         [Generator(1, Class = "identity")]
-        public int ID { get; set; }
+        public virtual int ID { get; set; }
 
         [Property(Name = "size")]
-        public int size { get; set; }
+        public virtual int size { get; set; }
 
         [Property(Name = "weight")]
-        public int weight { get; set; }
+        public virtual int weight { get; set; }
 
         [Property(Name = "posting_date")]
-        public DateTime posting_date { get; set; }
+        public virtual DateTime posting_date { get; set; }
 
-        [Property(Name = "receiving_fate")]
-        public DateTime receiving_date { get; set; }
+        [Property(Name = "receiving_date")]
+        public virtual DateTime receiving_date { get; set; }
 
-        public Client client { get; set; }
-        public Driver driver { get; set; }
+        public virtual Client client { get; set; }
+        public virtual Driver driver { get; set; }
 
         [Property(Name = "state")]
-        public OrderState state { get; set; }
+        public virtual OrderState state { get; set; }
     }
 }

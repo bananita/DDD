@@ -26,18 +26,18 @@ namespace Core.Domain.Model.Delivery
 
         [Id(Name = "ID")]
         [Generator(1, Class = "identity")]
-        public int ID { get; set; }
+        public virtual int ID { get; set; }
 
         [Property(Name = "name")]
-        public string name { get; set; }
+        public virtual string name { get; set; }
 
         [Property(Name = "surname")]
-        public string surname { get; set; }
+        public virtual string surname { get; set; }
 
         [Property(Name = "address")]
-        public string address { get; set; }
+        public virtual string address { get; set; }
 
 
-        public ICollection<DeliveryOrder> orders { get; set; }
+        public virtual ICollection<DeliveryOrder> orders { get; set; }
     }
 }
