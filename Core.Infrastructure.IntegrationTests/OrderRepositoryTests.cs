@@ -56,7 +56,7 @@ namespace Core.Infrastructure.DatabaseTests
 
             //Assert
             ICollection<Order> orders = repository.RetrieveAllOrders();
-            Assert.AreEqual(0, orders.Count);
+            Assert.AreEqual(1, orders.Count);
         }
 
         [TestMethod]
