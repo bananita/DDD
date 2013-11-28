@@ -20,7 +20,7 @@ namespace Core.Infrastructure.Repository
             return Fluently
                 .Configure()
                 .Database(FluentNHibernate.Cfg.Db.MsSqlConfiguration.MsSql2008.ConnectionString("Data Source=.;Initial Catalog=master;Integrated Security=true"))
-                .Mappings(m => m.FluentMappings.AddFromAssembly(Assembly.GetExecutingAssembly()))
+                .Mappings(m => m.FluentMappings.AddFromAssembly(Assembly.GetAssembly(typeof(Client))))
                 .BuildSessionFactory().OpenSession();
         }
 

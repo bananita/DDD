@@ -11,7 +11,7 @@ using Core.Domain.Model.RepositoryInterfaces;
 
 namespace Core.Infrastructure.DatabaseTests
 {
-   // [TestClass]
+    [TestClass]
     public class OrderNHibernateFluentRepositoryTests : OrderRepositoryTests
     {
         [TestInitialize]

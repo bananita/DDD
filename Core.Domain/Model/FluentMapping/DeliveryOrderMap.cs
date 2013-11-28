@@ -13,9 +13,12 @@ namespace Core.Domain.Model.FluentMapping
         public DeliveryOrderMap()
         {
             Id(x => x.ID);
-            //Map(x => x.name);
-            //Map(x => x.surname);
-            //Map(x => x.address);
+            Map(x => x.size);
+            Map(x => x.posting_date);
+            Map(x => x.receiving_date);
+            HasOne(x => x.client);
+            HasOne(x => x.driver);
+            Map(x => x.state);
         }
     }
 }

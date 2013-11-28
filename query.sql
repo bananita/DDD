@@ -6,7 +6,7 @@ if object_id('Driver', 'U') is not null drop table Driver;
 go
 
 create table Client (
-  ID int not null primary key,
+  ID int identity(1,1) not null primary key,
   name varchar(100),
   surname varchar(100),
   phone_number int,
@@ -15,7 +15,7 @@ create table Client (
 );
 
 create table Driver (
-  ID int not null primary key,
+  ID int identity(1,1) not null primary key,
   name varchar(100),
   surname varchar(100),
   address varchar(100)
@@ -25,7 +25,7 @@ create table Driver (
 -- state 1: ready
 -- state 2: delivered
 create table DeliveryOrder (
-  ID int not null primary key,
+  ID int identity(1,1) not null primary key,
   size int,
   weight int,
   posting_date date,

@@ -51,7 +51,10 @@ namespace Core.Domain.Model.Delivery
         [Property(Name = "receiving_date")]
         public virtual DateTime receiving_date { get; set; }
 
+        [OneToOne]
         public virtual Client client { get; set; }
+        
+        [OneToOne]
         public virtual Driver driver { get; set; }
 
         [Property(Name = "state")]

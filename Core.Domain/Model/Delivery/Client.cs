@@ -44,6 +44,8 @@ namespace Core.Domain.Model.Delivery
 
         [Property(Name = "address")]
         public virtual string address { get; set; }
+
+        [OneToMany]
         public virtual ICollection<DeliveryOrder> orders { get; set; }
     }
 }
